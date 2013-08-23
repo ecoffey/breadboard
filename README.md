@@ -25,7 +25,7 @@ Don't. This is a sketch. A itch that had no right to exist, but I scratched it a
 
 ### Where are the tests?
 
-It's a sketch! I <3 TDD but sometimes you just really need to vommit out all the ideas in your head before they get away.
+It's a sketch! I <3 TDD but sometimes you just really need to vomit out all the ideas in your head before they get away.
 
 ### Feedback?
 
