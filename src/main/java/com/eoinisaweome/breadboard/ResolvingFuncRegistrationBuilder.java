@@ -1,13 +1,13 @@
 package com.eoinisaweome.breadboard;
 
-import java.util.Set;
+import com.google.common.base.Function;
 
 public class ResolvingFuncRegistrationBuilder<T> extends BaseRegistrationBuilder {
 
     private final Class<T> concreteClass;
-    private final ResolvingFunc resolvingFunc;
+    private final Function<Resolver, Object> resolvingFunc;
 
-    public ResolvingFuncRegistrationBuilder(Class<T> concreteClass, ResolvingFunc resolvingFunc) {
+    public ResolvingFuncRegistrationBuilder(Class<T> concreteClass, Function<Resolver, Object> resolvingFunc) {
         this.concreteClass = concreteClass;
         this.resolvingFunc = resolvingFunc;
     }

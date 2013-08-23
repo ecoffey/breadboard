@@ -1,5 +1,7 @@
 package com.eoinisaweome.breadboard;
 
+import com.google.common.base.Function;
+
 import java.util.LinkedList;
 import java.util.List;
 
@@ -24,7 +26,7 @@ public class ContainerBuilder {
         return rb;
     }
 
-    public <T> BuilderOptions register(Class<T> concreteClass, ResolvingFunc resolvingFunc) {
+    public <T> BuilderOptions register(Class<T> concreteClass, Function<Resolver, Object> resolvingFunc) {
         final ResolvingFuncRegistrationBuilder<T> rfb = new ResolvingFuncRegistrationBuilder<>(concreteClass, resolvingFunc);
 
         registrationsCallbacks.add(new RegistrationBuilderCallback() {

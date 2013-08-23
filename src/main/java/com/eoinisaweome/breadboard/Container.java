@@ -70,8 +70,18 @@ public class Container implements LifetimeScope {
 
     @Override
     public void close() throws Exception {
+        Map<AutoCloseable, Exception> thrownErrors = Maps.newHashMap();
+
         for (AutoCloseable autoCloseable : autoCloseables) {
-            autoCloseable.close();
+            try {
+                autoCloseable.close();
+            } catch (Exception e) {
+                thrownErrors.put(autoCloseable, e);
+            }
+        }
+
+        if (thrownErrors.size() > 0) {
+            throw new RuntimeException("Caught exceptions when disposing scope");
         }
     }
 

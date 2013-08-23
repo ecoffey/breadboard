@@ -1,5 +1,7 @@
 package com.eoinisaweome.breadboard;
 
+import com.google.common.base.Function;
+
 public class Runner {
 
     public interface AThing {
@@ -45,7 +47,7 @@ public class Runner {
                 .as(AThing.class)
                 .singleInstance();
 
-        builder.register(DoStuff.class, new ResolvingFunc() {
+        builder.register(DoStuff.class, new Function<Resolver, Object>() {
             @Override
             public Object apply(Resolver r) {
                 return new DoStuff(r.resolve(AThing.class));
